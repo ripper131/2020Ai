@@ -1,0 +1,18 @@
+# Enable rewrite engine
+RewriteEngine On
+
+# Handle requests for static assets
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+# Redirect all requests to index.php for client-side routing
+RewriteRule ^.*$ /index.php [L,QSA]
+
+# Ensure proper MIME types for JavaScript modules
+AddType text/javascript .js
+AddType application/javascript .js
+
+# Allow access to assets directory
+<IfModule mod_headers.c>
+    Header set Access-Control-Allow-Origin "*"
+</IfModule>
