@@ -1,5 +1,6 @@
 const express = require('express');
 const path = require('path');
+const fs = require('fs');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -18,4 +19,6 @@ app.get('/index.html', (req, res) => {
 
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
+  console.log(`Access the app at: http://localhost:${PORT}`);
+  console.log(`For HTTPS, you need to configure SSL certificates`);
 });
